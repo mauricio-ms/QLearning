@@ -18,20 +18,14 @@ public final class QLearning {
     }
 
     public void episodio() {
-//        do {
-//            transicaoAtualizada = tabela.atualizarTransicao(s);
-//            s = transicaoAtualizada.getPosicao();
-//        } while (!transicaoAtualizada.isObjetivo());
-
+        caminhoEpisodio.clear();
         Integer s = 0;
-        Transicao transicaoAtualizada = Transicao.of(0, 0.0);
+        Transicao transicaoAtualizada = Transicao.of(s, 0.0);
         while(!transicaoAtualizada.isObjetivo()) {
             caminhoEpisodio.add(transicaoAtualizada);
             transicaoAtualizada = tabela.atualizarTransicao(s);
-            System.out.println(transicaoAtualizada);
             s = transicaoAtualizada.getPosicao();
         }
-        System.out.println("END");
     }
 
     public Tabela getTabela() {

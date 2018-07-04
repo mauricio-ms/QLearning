@@ -48,10 +48,6 @@ public final class Transicao {
         return valor;
     }
 
-    public Recompensa getRecompensa() {
-        return recompensa;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

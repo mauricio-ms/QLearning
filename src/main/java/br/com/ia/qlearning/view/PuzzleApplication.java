@@ -6,13 +6,18 @@ import br.com.ia.qlearning.model.Transicao;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class PuzzleApplication extends Application {
 
@@ -72,11 +77,29 @@ public class PuzzleApplication extends Application {
     }
 
     private void start() {
-        qLearning.episodio();
-        final List<Transicao> caminhoEpisodio = qLearning.getCaminhoEpisodio();
         new Thread(() -> {
-            caminhoEpisodio.forEach(this::moverPeca);
+            IntStream.range(0, 200)
+                    .forEach(any -> {
+                        final LocalDateTime start = LocalDateTime.now();
+                        qLearning.episodio();
+                        final List<Transicao> caminhoEpisodio = qLearning.getCaminhoEpisodio();
+                        caminhoEpisodio.forEach(this::moverPeca);
+                        clearPuzzle();
+                        System.out.println("Resultados:");
+                        System.out.println("Tempo Decorrido >> " +
+                                start.until(LocalDateTime.now(), ChronoUnit.SECONDS) + " segundos.");
+                        System.out.println("Transições realizadas >> " + caminhoEpisodio.size());
+                    });
         }).start();
+    }
+
+    private void clearPuzzle() {
+        IntStream.range(0, 50)
+                .forEach(i -> {
+                    final StackPane node = (StackPane) puzzle.getChildren().get(i);
+                    final Rectangle rectangle = (Rectangle) node.getChildren().get(0);
+                    rectangle.getStyleClass().removeAll("ativo", "visitado");
+                });
     }
 
     private void moverPeca(final Transicao transicao) {

@@ -37,8 +37,6 @@ public class PuzzleApplication extends Application {
         borderPane.setCenter(puzzle);
 
         final Scene scene = new Scene(borderPane, FIELD_SIZE_PIXELS * 10, FIELD_SIZE_PIXELS * 5);
-        final InputStream resourceAsStream = PuzzleApplication.class.getResourceAsStream("ch.jpg");
-        System.out.println(resourceAsStream);
         primaryStage.getIcons().add(new Image(ClassLoader.getSystemResourceAsStream("icon.png")));
 
         primaryStage.setTitle("QLearning");

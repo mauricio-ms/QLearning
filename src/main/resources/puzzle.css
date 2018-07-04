@@ -1,0 +1,31 @@
+.estado-inicial {
+    -fx-stroke: white;
+    -fx-fill: green;
+}
+
+.estado-intransponivel {
+    -fx-stroke: white;
+    -fx-fill: black;
+}
+
+.estado-convencional {
+    -fx-stroke: white;
+    -fx-fill: blue;
+}
+
+.estado-objetivo {
+    -fx-stroke: white;
+    -fx-fill: green;
+}
+
+.conteudo-estado {
+    -fx-fill: white;
+}
+
+.ativo {
+    -fx-fill: #ccff99;
+}
+
+.visitado {
+    -fx-opacity: 0.6;
+}

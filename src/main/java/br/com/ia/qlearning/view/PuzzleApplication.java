@@ -66,7 +66,7 @@ public class PuzzleApplication extends Application {
                 text.setText(String.valueOf(indexAsArray));
                 text.getStyleClass().add("conteudo-estado");
                 final Integer layoutX = FIELD_SIZE_PIXELS * x;
-                final Integer layoutY = FIELD_SIZE_PIXELS * y;
+                final Integer layoutY = FIELD_SIZE_PIXELS * (4 - y);
                 stackPane.setLayoutX(layoutX);
                 stackPane.setLayoutY(layoutY);
                 stackPane.getChildren().addAll(rectangle, text);
@@ -89,7 +89,7 @@ public class PuzzleApplication extends Application {
                         System.out.println("Tempo Decorrido >> " +
                                 start.until(LocalDateTime.now(), ChronoUnit.SECONDS) + " segundos.");
                         System.out.println("Transições realizadas >> " + caminhoEpisodio.size());
-                    });
+                        });
         }).start();
     }
 

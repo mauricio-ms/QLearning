@@ -49,8 +49,9 @@ public final class Tabela {
 
     public Transicao atualizarTransicao(final Integer s) {
         final Transicao melhorTransicao = getMelhorTransicao(s);
-
-        final Transicao transicaoComValorAtualizado = melhorTransicao.comValorAtualizado();
+        final Transicao melhorTransicaoParaMelhorTransicao = getMelhorTransicao(melhorTransicao.getPosicao());
+        final Transicao transicaoComValorAtualizado =
+                melhorTransicao.comValorAtualizado(melhorTransicaoParaMelhorTransicao);
 
         final List<Transicao> transicoes = q.get(s);
         transicoes.set(transicoes.indexOf(melhorTransicao),

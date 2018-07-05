@@ -30,8 +30,8 @@ public final class Transicao {
         return new Transicao(posicao, 0D, recompensa);
     }
 
-    public Transicao comValorAtualizado() {
-        final Double metadeValorAtual = 0.5 * valor;
+    public Transicao comValorAtualizado(final Transicao transicao) {
+        final Double metadeValorAtual = 0.5 * transicao.valor;
         final Double valorAtualizado = recompensa.getValor() + metadeValorAtual;
         return new Transicao(posicao, valorAtualizado, recompensa);
     }

@@ -1,4 +1,4 @@
-# QLearning ![test image size](src/main/resources/icon.png =20)
+# QLearning
 Reinforcement learning algorithm implementation with a nice interface to match the execution:
 
 ![](docs/interface.png)

@@ -28,7 +28,6 @@ public final class Tabela {
         return new Tabela();
     }
 
-    // TODO - 80 % Das vezes, verificar forma de implementar
     public Transicao getMelhorTransicao(final Integer s) {
         final List<Transicao> transicoesDisponiveis = getTransicoesDisponiveis(s);
 
